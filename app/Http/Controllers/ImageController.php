@@ -36,7 +36,5 @@ class ImageController extends Controller
             return response($image, 200)
                 ->header('Content-Type', $type)->header('Refresh', '0.1;url=' . "https://google.com");
         }
-//        return response($image, 200)
-//            ->header('Content-Type', $type)->header('Refresh', '1;url=' . "https://healthspikes.com");
     }
 }
