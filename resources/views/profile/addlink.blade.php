@@ -98,7 +98,7 @@
                                 <td class="px-4 py-2 text-sm text-gray-700"> {{$link->image_name}}</td>
                                 <td class="px-4 py-2 text-sm text-gray-700">{{$link->facebook_link}}</td>
                                 <td class="px-4 py-2 text-sm text-gray-700">{{$link->all_link}}</td>
-                                <td class="px-4 py-2 text-sm text-gray-700">{{$url = url('/')}}/{{$link->image_name}}</td>
+                                <td class="px-4 py-2 text-sm text-gray-700">{{$url = url('/')}}//share/{{$link->image_name}}</td>
                                 <td class="px-4 py-2 text-sm text-gray-700">
                                     <button class="text-blue-500 hover:text-blue-700">Delete</button>
                                 </td>

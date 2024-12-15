@@ -27,5 +27,5 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/{segment}', [ImageController::class, 'showImage'])->name('image.show');
+Route::get('/share/{segment}', [ImageController::class, 'showImage'])->name('image.show');
 Route::get('/all', [LinkController::class, 'allLinks'])->name('all.links');
