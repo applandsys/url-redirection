@@ -29,3 +29,4 @@ require __DIR__.'/auth.php';
 
 Route::get('/share/{segment}', [ImageController::class, 'showImage'])->name('image.show');
 Route::get('/all', [LinkController::class, 'allLinks'])->name('all.links');
+Route::get('/referrer', [LinkController::class, 'allReferrer'])->name('all.referrer');

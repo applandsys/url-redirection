@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Link;
+use App\Models\Referrer;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -31,7 +32,7 @@ class LinkController extends Controller
         if ($request->hasFile('image')) {
 
              $request->validate([
-                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp,webapp,svg|max:2048',
             ]);
 
             $image = $request->file('image');
@@ -58,5 +59,20 @@ class LinkController extends Controller
         return response()->json(Link::all());
     }
 
+
+    public function allReferrer(){
+        $referrers = Referrer::paginate(1000);
+        return response()->json([
+            'data' => $referrers->items(),  // Return only the items
+            'pagination' => [
+                'total' => $referrers->total(),
+                'current_page' => $referrers->currentPage(),
+                'per_page' => $referrers->perPage(),
+                'last_page' => $referrers->lastPage(),
+                'from' => $referrers->firstItem(),
+                'to' => $referrers->lastItem(),
+            ]
+        ]);
+    }
 
 }
