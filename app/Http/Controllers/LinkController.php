@@ -11,7 +11,7 @@ class LinkController extends Controller
 {
     public function linkPage(Request $request): View
     {
-        $links =  Link::get();
+        $links =  Link::orderByDesc('id')->get();
         return view('profile.addlink', [
             'links' => $links,
         ]);
@@ -52,8 +52,19 @@ class LinkController extends Controller
 
         return back()->with('success', 'Image uploaded successfully');
 
+    }
+
+    public function linkDelete($id)
+    {
+        $delete =  Link::destroy($id);
+        if($delete){
+            return back()->with('success', 'Link uploaded successfully');
+        }else{
+            return back()->with('failed', 'Delete Failed');
+        }
 
     }
+
 
     public function allLinks(){
         return response()->json(Link::all());

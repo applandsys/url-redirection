@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('referrers', function (Blueprint $table) {
             $table->id();
-            $table->string('url');
+            $table->longText('url')->nullable();
+            $table->longText('current_url')->nullable();
             $table->timestamps();
         });
     }

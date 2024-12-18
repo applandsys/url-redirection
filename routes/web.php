@@ -23,6 +23,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
     Route::get('/addlink', [LinkController::class, 'linkPage'])->name('addlink.index');
     Route::post('/addlink', [LinkController::class, 'linkInsert'])->name('addlink.linkinsert');
+    Route::get('/deletelink/{id}', [LinkController::class, 'linkDelete'])->name('linkDelete');
 });
 
 require __DIR__.'/auth.php';
